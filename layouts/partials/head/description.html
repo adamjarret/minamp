@@ -1,0 +1,3 @@
+{{ with .Params.description | default $.Site.Params.description -}}
+<meta name="description" content="{{ . | safeHTMLAttr }}">
+{{- end -}}

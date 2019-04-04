@@ -1,0 +1,12 @@
+{{ define "main" }}
+<header>
+    <h2>{{ .Title }}</h2>
+</header>
+<nav class="terms">
+    <ul>
+        {{ range .Pages.ByTitle }}
+        <li><a href="{{ .Permalink }}">{{ .Title | urlize }}</a></li>
+        {{ end }}
+    </ul>
+</nav>
+{{ end }}

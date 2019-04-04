@@ -1,0 +1,20 @@
+# See https://github.com/gohugoio/hugoThemes#themetoml
+
+name = "minamp"
+license = "MIT"
+licenselink = "https://github.com/adamjarret/minamp/blob/master/LICENSE"
+description = "Minimal AMP compatible theme"
+homepage = "https://github.com/adamjarret/minamp"
+tags = []
+features = []
+min_version = "0.41"
+
+[author]
+  name = "Adam Jarret"
+  homepage = "https://atj.me"
+
+# If porting an existing theme
+[original]
+  name = ""
+  homepage = ""
+  repo = ""

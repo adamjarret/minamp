@@ -1,0 +1,48 @@
+<!doctype html>
+<html amp lang="{{ $.Site.LanguageCode }}">
+<head>
+    <meta charset="utf-8">
+
+    {{- block "scratch" . -}}{{- end -}}
+
+    {{ partial "head/amp-components" . }}
+
+    <title>{{ block "title" . }}{{ partial "head/title" . }}{{ end }}</title>
+
+    {{ block "canonical" . }}{{ partial "head/canonical" . }}{{ end }}
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    {{ with $.Site.Params.themeColor }}<meta name="theme-color" content="{{ . | safeHTMLAttr }}" />{{ end }}
+
+    {{ block "description" . }}{{ partial "head/description" . }}{{ end }}
+
+    {{ block "feeds" . }}{{ partial "head/feeds" . }}{{ end }}
+
+    {{ block "fonts" . }}{{ partial "head/fonts" . }}{{ end }}
+
+    {{ partial "head/amp-boilerplate" . }}
+    <style amp-custom>
+        {{ block "styles" . }}{{ partial "head/amp-styles" . | safeCSS }}{{ end }}
+        {{ block "css" . }}{{ end }}
+    </style>
+
+    {{ block "seo" . }}{{ partial "head/seo" . }}{{ end }}
+    {{ block "head" . }}{{ partial "head/other" . }}{{ end }}
+</head>
+<body>
+
+{{- block "body_header" . }}{{- partial "body-header" . -}}{{- end }}
+
+<main {{- with $.Site.Params.mainId }} id="{{ . | safeHTMLAttr }}"{{ end -}}{{- with $.Site.Params.mainClass }} class="{{ . | safeHTMLAttr }}"{{ end -}}>
+    {{- block "main_header" . }}{{- partial "main-header" . -}}{{- end }}
+    {{- block "main" . }}{{ .Content }}{{- end }}
+    {{- block "main_footer" . }}{{- partial "main-footer" . -}}{{- end }}
+</main>
+
+{{- block "body_footer" . }}{{- partial "body-footer" . -}}{{- end }}
+
+{{- block "google_analytics" . }}{{- partial "amp/google-analytics" . -}}{{- end }}
+
+</body>
+</html>

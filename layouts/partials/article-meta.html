@@ -1,0 +1,22 @@
+<div class="meta">
+    Posted
+
+    {{ $sec := .Site.GetPage "section" .Section }}
+    {{ with $sec.Title}} in <a href="{{- $sec.Permalink -}}">{{- . -}}</a>{{ end }}
+
+    on {{ .Date.Format "January 2, 2006" }}
+
+    {{ range $name, $taxonomy := .Site.Taxonomies }}
+    {{ with ($.Param $name) }}
+    <ul class="taxonomy {{ $name }}">
+        {{ range $index, $tag := . }}
+        {{ with $.Site.GetPage (printf "/%s/%s" $name $tag) -}}
+        <li>
+            <a href="{{ .Permalink }}">{{ $tag | urlize }}</a>
+        </li>
+        {{- end -}}
+        {{- end -}}
+    </ul>
+    {{ end }}
+    {{ end }}
+</div>

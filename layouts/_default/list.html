@@ -1,0 +1,12 @@
+{{ define "main" }}
+<header>
+    {{ if .Data.Singular }}
+        <h2>{{ .Data.Singular | title }}: {{ .Title | urlize }}</h2>
+    {{ else }}
+        {{ with .Title }}<h2>{{ . }}</h2>{{ end }}
+    {{ end }}
+    {{ .Content }}
+</header>
+{{ partial "summaries" .Paginator.Pages }}
+{{ template "_internal/pagination.html" . }}
+{{ end }}

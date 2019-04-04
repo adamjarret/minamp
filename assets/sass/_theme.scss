@@ -1,0 +1,91 @@
+$body-margin: 0 !default;
+$body-padding: 16px !default;
+$content-spacing: 16px !default;
+$font-size: 16px !default;
+$font-family: 'PT Serif', serif !default;
+$h1-size: $font-size * 2 !default;
+$h2-size: $font-size * 1.5 !default;
+$h3-size: $font-size * 1.17 !default;
+$h4-size: $font-size !default;
+$h5-size: $font-size * .83 !default;
+$h6-size: $font-size * .75 !default;
+$h1-margin: $font-size * .67 !default;
+$h2-margin: $font-size * .75 !default;
+$h3-margin: $font-size * .83 !default;
+$h4-margin: $font-size * 1.12 !default;
+$h5-margin: $font-size * 1.5 !default;
+$h6-margin: $font-size * 1.67 !default;
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: $body-margin;
+  padding: $body-padding;
+  font-family: $font-family;
+  font-size: $font-size;
+}
+
+article {
+  margin-bottom: ($content-spacing * 2);
+}
+
+footer {
+  margin-top: $content-spacing;
+}
+
+ol, ul {
+  padding: 0 0 0 ($content-spacing * 2);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  padding: 0;
+  font-weight: normal;
+}
+
+/* Thanks https://www.w3.org/TR/CSS22/sample.html */
+h1              { font-size: $h1-size; margin: $h1-margin 0 }
+h2              { font-size: $h2-size; margin: $h2-margin 0 }
+h3              { font-size: $h3-size; margin: $h3-margin 0 }
+h4, p,
+blockquote,
+ul, ol, dl,
+fieldset, form,
+menu, dir       { font-size: $h4-size; margin: $h4-margin 0; font-weight: normal }
+h5              { font-size: $h5-size; margin: $h5-margin 0 }
+h6              { font-size: $h6-size; margin: $h6-margin 0 }
+
+h2 + .meta {
+  margin-top: $h2-margin * -.5;
+}
+
+h3 + .meta {
+  margin-top: $h3-margin * -.5;
+}
+
+.meta {
+  font-style: italic;
+}
+
+.taxonomy li a:before {
+  content: '#';
+}
+
+.taxonomy,
+.taxonomy li,
+.pagination,
+.pagination .page-item {
+  list-style: none;
+  display: inline;
+  padding-left: 0;
+}
+
+.pagination {
+  display: block;
+  margin-top: $content-spacing;
+}

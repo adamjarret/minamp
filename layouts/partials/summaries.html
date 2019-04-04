@@ -1,0 +1,10 @@
+{{ range .ByDate.Reverse }}
+<article>
+    <header>
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        {{ partial "article-meta" . }}
+    </header>
+    {{ .Summary }}
+    <a class="read-more" href="{{ .Permalink }}">Read more...</a>
+</article>
+{{ end }}

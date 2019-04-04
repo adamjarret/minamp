@@ -1,0 +1,32 @@
+
+    {{/* Append components from data/amp/components to $.Scratch value */}}
+    {{- range $.Site.Data.amp.components.global -}}
+        {{- $.Scratch.Add "ampComponents" (slice .) -}}
+    {{- end -}}
+
+    {{/* Append components specified in Hugo config to $.Scratch value */}}
+    {{- range $.Site.Params.ampComponentsGlobal -}}
+        {{- $.Scratch.Add "ampComponents" (slice .) -}}
+    {{- end -}}
+
+    {{/* Append components specified in content frontmatter to $.Scratch value */}}
+    {{- range .Params.ampComponents -}}
+        {{- $.Scratch.Add "ampComponents" (slice .) -}}
+    {{- end -}}
+
+    {{/* Append amp-analytics component if googleAnalytics param is set in Hugo config */}}
+    {{- if isset $.Site.Params "googleanalytics" -}}
+        {{- $.Scratch.Add "ampComponents" (slice "amp-analytics") -}}
+    {{- end -}}
+
+    {{/* Include AMP core */}}
+    {{- partial "head/amp-script-element" (slice nil "https://cdn.ampproject.org/v0.js") }}
+
+    {{/* Include custom elements specified in $.Scratch value */}}
+    {{- range ($.Scratch.Get "ampComponents" | uniq) -}}
+        {{- if eq . "amp-mustache" }}
+            {{- partial "head/amp-script-template" (slice . (index $.Site.Data.amp.src .)) }}
+        {{- else }}
+            {{- partial "head/amp-script-element" (slice . (index $.Site.Data.amp.src .)) }}
+        {{- end }}
+    {{ end -}}

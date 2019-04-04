@@ -1,0 +1,9 @@
+{{ define "main" }}
+<article>
+    <header>
+        <h2>{{ .Title }}</h2>
+        {{ partial "article-meta" . }}
+    </header>
+    {{ .Content }}
+</article>
+{{ end }}

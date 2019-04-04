@@ -1,0 +1,4 @@
+# Define which AMP components are used globally (these elements will be included in every page)
+#   Ex: global = ["amp-sidebar"]
+#	Note: AMP validation requires all included components to be used.
+global = []

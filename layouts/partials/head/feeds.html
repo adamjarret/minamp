@@ -1,0 +1,4 @@
+{{ if .RSSLink }}
+<link rel="alternate" href="{{ .RSSLink }}" type="application/rss+xml" title="{{ .Site.Title }}"/>
+<link rel="feed" href="{{ .RSSLink }}" type="application/rss+xml" title="{{ .Site.Title }}"/>
+{{ end }}

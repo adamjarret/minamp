@@ -1,0 +1,4 @@
+{{- $options := (dict "outputStyle" "compressed") -}}
+{{- $sass := resources.Get "sass/styles.scss" -}}
+{{- $style := $sass | resources.ToCSS $options -}}
+{{ $style.Content | safeHTML }}
