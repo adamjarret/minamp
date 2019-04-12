@@ -9,6 +9,9 @@ __AMP component scripts from different scopes__.
 See the [example site](https://github.com/adamjarret/minamp-demo)
 and the [live demo](https://adamjarret.github.io/minamp-demo).
 
+Note: The [extended](https://gohugo.io/news/0.43-relnotes/#notes)
+version of Hugo is required to use this theme (because SCSS files are used).
+
 ## Installation
 
 Add this repository as a submodule to your hugo site repo:
@@ -23,7 +26,7 @@ Edit your config file (ex. __config.toml__):
     disableLiveReload = true
 
     # The <meta charset="utf-8"> element should be the first element in <head>
-    #	Instead of injecting, {{ .Hugo.Generator }} is included explicitly in layouts/partials/head/other.html
+    #	Instead of injecting, {{ hugo.Generator }} is included explicitly in layouts/partials/head/other.html
     disableHugoGeneratorInject = true
 
 ## Usage

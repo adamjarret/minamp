@@ -7,7 +7,7 @@ description = "Minimal AMP compatible theme"
 homepage = "https://github.com/adamjarret/minamp"
 tags = []
 features = []
-min_version = "0.41"
+min_version = 0.53
 
 [author]
   name = "Adam Jarret"
