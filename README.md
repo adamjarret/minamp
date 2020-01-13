@@ -26,7 +26,7 @@ Edit your config file (ex. **config.toml**):
     disableLiveReload = true
 
     # [RECOMMENDED] The <meta charset="utf-8"> element should be the first element in <head>
-    #	Instead of injecting, {{ hugo.Generator }} is included explicitly in layouts/partials/head/other.html
+    #   Instead of injecting, {{ hugo.Generator }} is included explicitly in layouts/partials/head/other.html
     disableHugoGeneratorInject = true
 
     # [RECOMMENDED] Allow HTML in markdown files (otherwise all AMP elements must be rendered using shortcodes/partials)
