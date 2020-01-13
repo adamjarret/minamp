@@ -2,9 +2,9 @@
 
 A minimal [AMP](https://ampproject.org) compatible theme for [Hugo](https://gohugo.io).
 
-The minamp theme is intended to be a __blank canvas__ for AMP sites.
-It is focused on __versatility__ and reducing the pain of loading styles and
-__AMP component scripts from different scopes__.
+The minamp theme is intended to be a **blank canvas** for AMP sites.
+It is focused on **versatility** and reducing the pain of loading styles and
+**AMP component scripts from different scopes**.
 
 See the [example site](https://github.com/adamjarret/minamp-demo)
 and the [live demo](https://adamjarret.github.io/minamp-demo).
@@ -18,16 +18,20 @@ Add this repository as a submodule to your hugo site repo:
 
     git submodule add https://github.com/adamjarret/minamp themes/minamp
 
-Edit your config file (ex. __config.toml__):
+Edit your config file (ex. **config.toml**):
 
     theme = "minamp"
 
-    # Prevent hugo server from injecting JS into the page in dev env (breaks AMP validation via browser plugin)
+    # [REQUIRED] Prevent hugo server from injecting JS into the page in dev env (breaks AMP validation via browser plugin)
     disableLiveReload = true
 
-    # The <meta charset="utf-8"> element should be the first element in <head>
+    # [RECOMMENDED] The <meta charset="utf-8"> element should be the first element in <head>
     #	Instead of injecting, {{ hugo.Generator }} is included explicitly in layouts/partials/head/other.html
     disableHugoGeneratorInject = true
+
+    # [RECOMMENDED] Allow HTML in markdown files (otherwise all AMP elements must be rendered using shortcodes/partials)
+    [markup.goldmark.renderer]
+        unsafe = true
 
 ## Usage
 
@@ -52,11 +56,11 @@ From the [AMP documentation](https://www.ampproject.org/docs/guides/responsive/s
 > Like all web pages, AMP pages are styled with CSS, but you can’t reference external stylesheets
 > (with the exception of custom fonts).
 > Also certain styles are disallowed due to performance implications; inline style attributes aren't allowed.
-> __All styles must live in the head of the document__...
+> **All styles must live in the head of the document**...
 
 #### Global Styles
 
-To override the CSS that is included in every page, override the __assets/sass/styles.scss__ file.
+To override the CSS that is included in every page, override the **assets/sass/styles.scss** file.
 
 #### Page Specific Styles
 
@@ -68,13 +72,13 @@ Layouts can define the `"css"` block to include page specific styles.
     }
     {{ end }}
 
-### Lodaing AMP Components
+### Loading AMP Components
 
 AMP components must be loaded via `<script>` tag in the `<head>` before they can be used.
 AMP validation requires that all loaded elements must be used.
 
 When using this theme, components can be referenced by their
-[AMP custom-element name](https://github.com/adamjarret/minamp/blob/master/data/amp/src.json) 
+[AMP custom-element name](https://github.com/adamjarret/minamp/blob/master/data/amp/src.json)
 and can be loaded globally, for a specific layout and/or a specific content file.
 
 #### Global Components
@@ -85,12 +89,12 @@ Global components will be loaded on every page.
 
 The following components are loaded automatically:
 
-* `amp-core`
-* `amp-analytics` _(only loaded if `googleAnalytics` param is set in the Hugo config)_
+- `amp-core`
+- `amp-analytics` _(only loaded if `googleAnalytics` param is set in the Hugo config)_
 
 ##### Specified in Data File
 
-The theme will load AMP components specified in __data/amp/components.toml__ file.
+The theme will load AMP components specified in **data/amp/components.toml** file.
 
 ```toml
 global = ["amp-sidebar"]

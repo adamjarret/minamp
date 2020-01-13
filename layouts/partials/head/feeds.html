@@ -1,4 +1,6 @@
-{{ if .RSSLink }}
-<link rel="alternate" href="{{ .RSSLink }}" type="application/rss+xml" title="{{ .Site.Title }}"/>
-<link rel="feed" href="{{ .RSSLink }}" type="application/rss+xml" title="{{ .Site.Title }}"/>
+{{- with .OutputFormats.Get "RSS" -}}
+{{ if .Permalink }}
+<link rel="alternate" href="{{ .Permalink }}" type="application/rss+xml" title="{{ $.Site.Title }}"/>
+<link rel="feed" href="{{ .Permalink }}" type="application/rss+xml" title="{{ $.Site.Title }}"/>
 {{ end }}
+{{- end -}}
