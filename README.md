@@ -48,7 +48,7 @@ In a layout file:
 ### Customizing Styles
 
 AMP only allows
-[50KB of CSS per HTML page](https://www.ampproject.org/docs/reference/validation_errors#stylesheet-too-long)
+[75KB of CSS per HTML page](https://www.ampproject.org/docs/reference/validation_errors#stylesheet-too-long)
 and places restrictions on how CSS is loaded and what styles are supported.
 
 From the [AMP documentation](https://www.ampproject.org/docs/guides/responsive/style_pages.html):
