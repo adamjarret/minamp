@@ -1,0 +1,5 @@
+{
+  "endpointUrl": "https://cdn.ampproject.org/v0",
+  "versionsUrl": "https://amp.dev/static/files/component-versions.json",
+  "srcPath": "data/amp/src.json"
+}

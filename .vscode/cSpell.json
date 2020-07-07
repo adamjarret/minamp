@@ -1,0 +1,31 @@
+{
+  "words": [
+    "Jarret",
+    "minamp",
+    "pageview",
+    "isset",
+    "googleanalytics",
+    "lightbox",
+    "tabindex",
+    "printf",
+    "frontmatter",
+    "amphtml",
+    "ampproject",
+    "mkdir",
+    "mindepth",
+    "maxdepth",
+    "submodule",
+    "baseof",
+    "youtube",
+    "licenselink",
+    "nodegit",
+    "goldmark",
+    "shortcodes",
+    "juliangruber"
+  ],
+  "ignorePaths": [
+    ".git",
+    "data/amp/src.json",
+    "package-lock.json"
+  ]
+}

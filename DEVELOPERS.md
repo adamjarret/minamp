@@ -1,13 +1,12 @@
-# Developing minamp
+# minamp Development
 
-## Development Setup
+## Requirements
 
-### Install Dependencies
+- [node](https://nodejs.org/) LTS
+- [git](https://git-scm.com)
 
-Generating the __src.json__ data file requires [jq](https://stedolan.github.io/jq/) and several standard linux utilities
-(see __Makefile__ for details).
+## Generate data
 
-### Generate data files
-
-    make data
-
+```sh
+node scripts/amp-src.js
+```

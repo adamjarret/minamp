@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "minamp",
+  "version": "1.0.0",
+  "description": "A minimal [AMP](https://ampproject.org) compatible theme for [Hugo](https://gohugo.io).",
+  "main": "index.js",
+  "scripts": {
+    "amp-src": "node scripts/amp-src.js",
+    "release-notes": "node scripts/release-notes.js",
+    "data": "npm run amp-src && npm run release-notes"
+  },
+  "keywords": [],
+  "author": "Adam Jarret <adam@atj.me> (https://atj.me)",
+  "license": "MIT",
+  "devDependencies": {
+    "deep-diff": "^1.0.2"
+  }
+}
