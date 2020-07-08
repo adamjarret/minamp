@@ -6,7 +6,9 @@ name: Update AMP component versions
 on:
     repository_dispatch:
         types: [amp-src]
-
+    schedule:
+        # * is a special character in YAML so you have to quote this string
+        - cron: '0 0 1 * *'
 jobs:
     genAmpSrc:
         runs-on: ubuntu-latest
@@ -48,8 +50,9 @@ jobs:
               uses: peter-evans/create-pull-request@v2
               with:
                   branch: amp-src
+                  title: Update AMP component versions
                   body: ${{ steps.msg.outputs.content }}
                   commit-message: ${{ steps.msg.outputs.content }}
 
             - name: Show Pull Request Number
-              run: echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+              run: echo "PR \#${{ steps.cpr.outputs.pull-request-number }}"
