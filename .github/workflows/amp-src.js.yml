@@ -17,27 +17,27 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v2
 
-            - name: Setup Node.js
+            - name: Set up node.js
               uses: actions/setup-node@v1
               with:
                   node-version: '12'
 
-            - name: Install Dependencies
+            - name: Install dependencies
               run: npm ci
 
             - name: Generate src.json
               run: npm run amp-src
 
-            - name: Write Commit Message
+            - name: Write commit message
               run: npm run release-notes --silent > /tmp/commit-message.txt
 
-            - name: Read Commit Message
+            - name: Read commit message
               id: msg
               uses: juliangruber/read-file-action@v1
               with:
                   path: /tmp/commit-message.txt
 
-            - name: Show Message
+            - name: Show commit message
               run: |
                   OUT="${{ steps.msg.outputs.content }}"
                   OUT="${OUT//'%25'/'%'}"
@@ -45,7 +45,7 @@ jobs:
                   OUT="${OUT//$'%0D'/'\r'}"
                   echo -e "${OUT}"
 
-            - name: Create Pull Request
+            - name: Create pull request
               id: cpr
               uses: peter-evans/create-pull-request@v2
               with:
@@ -54,5 +54,5 @@ jobs:
                   body: ${{ steps.msg.outputs.content }}
                   commit-message: ${{ steps.msg.outputs.content }}
 
-            - name: Show Pull Request Number
+            - name: Show pull request number
               run: echo "PR \#${{ steps.cpr.outputs.pull-request-number }}"
